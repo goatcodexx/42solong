@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 19:42:27 by sywee             #+#    #+#             */
-/*   Updated: 2026/10/06 19:44:29 by sywee            ###   ########.fr       */
+/*   Updated: 2026/10/06 20:27:18 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,15 @@
 # include "get_next_line/get_next_line.h"
 
 typedef struct  s_map
-{ 
-}       t_map;
+{
+    char    **map;
+    int     rows;
+    int     columns;
+    int     player_x;
+    int     player_y;
+    int     collectibles;
+    int     collected;
+    
+}           t_map;
 
 #endif
