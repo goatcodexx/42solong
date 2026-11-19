@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 21:12:55 by sywee             #+#    #+#             */
-/*   Updated: 2026/01/27 16:37:11 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/02 10:38:13 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
+# include "../libft/libft.h"
 
 // ft_printf.c
 int		ft_printf(const char *format, ...);
 
 // ft_printf_utils.c
-int		ft_strlen(char	*str);
+// int		ft_strlen(char	*str);
 
 // ft_putstr.c
 int		ft_putstr(char	*str);

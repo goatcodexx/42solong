@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 15:29:21 by sywee             #+#    #+#             */
-/*   Updated: 2025/12/21 18:54:30 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/02 13:18:42 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdint.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 38
+# endif
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -52,6 +57,8 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+char	*get_next_line(int fd);
 
 typedef struct s_list
 {

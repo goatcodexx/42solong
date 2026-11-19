@@ -6,11 +6,11 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 22:53:49 by sywee             #+#    #+#             */
-/*   Updated: 2026/03/09 17:51:41 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/02 13:20:10 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 static char	*readd(int fd, char *stash)
 {
