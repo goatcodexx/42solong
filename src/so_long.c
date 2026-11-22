@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 19:42:19 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/21 19:12:08 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/22 20:12:51 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,13 @@ int main(int ac, char *av[])
     if (!check_extension(av[1]))
         return(error_msg("Invalid file extension [.ber only]"));
     stuff = malloc(sizeof(t_map) * 1);
-    read_map(av[1], stuff);
+    if (!stuff)
+        return(error_msg("Memory allocation failed"));
+    stuff->map = NULL;
+    stuff->collectibles = 0;
+    stuff->collected = 0;
+    if (!read_map(av[1], stuff))
+        free_everything(stuff, "Cannot read map");
     check_rows(stuff);
     
     /*     data.mlx_ptr = mlx_init();

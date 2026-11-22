@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/21 16:56:40 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/21 20:41:06 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/22 20:16:12 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	check_rows(t_map *stuff)
 
 	i = 1;
 	len = ft_strlen(stuff->map[0]);
+	stuff->columns = len;
 	while (stuff->map[i] != NULL)
 	{
 		len2 = ft_strlen(stuff->map[i]);
@@ -44,6 +45,7 @@ int	count_char(t_map *stuff, int pce)
 		line = stuff->map[i];
 		if ((ft_strchr(line, pce)) != NULL)
 			flag += 1;
+		i++;
 	}
 	return (flag);
 }
@@ -53,8 +55,6 @@ int	check_char(t_map *stuff)
 	int		flag_p;
 	int		flag_e;
 	int		flag_c;
-	int		i;
-	char	*line;
 
 	flag_p = count_char(stuff, 'P');
 	flag_e = count_char(stuff, 'E');
@@ -68,5 +68,21 @@ int	check_char(t_map *stuff)
 
 int	check_walls(t_map *stuff)
 {
-		
+	int	i;
+
+	i = 0;
+	while (i < stuff->columns)
+	{
+		if ()
+			free_everything(stuff, "Map is not surrounded by walls");
+		i++;
+	}
+	i = 0;
+	while (i < stuff->rows)
+	{
+		if ()
+			free_everything(stuff, "Map is not surrounded by walls");
+		i++;
+	}
+	return (1);
 }
