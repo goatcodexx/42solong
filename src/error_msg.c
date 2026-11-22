@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 18:19:37 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/19 19:02:56 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/21 18:38:46 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 int	error_msg(char *msg)
 {
-	ft_printf("Error\n%s\n", msg);
-	return (1);
+	if (msg)
+	{
+		ft_printf("Error\n%s\n", msg);
+		return (1);
+	}
+	return (0);
 }

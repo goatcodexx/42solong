@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 19:42:27 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/19 19:21:20 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/21 20:00:09 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <X11/keysymdef.h>
 # include "libft.h"
 # include "ft_printf.h"
+# include <fcntl.h>
 
 typedef struct  s_map
 {
@@ -50,8 +51,14 @@ typedef struct s_game
     int     move_count;
 }           t_game;
 
-int error_msg(char *msg);
-int check_extension(char *file_name);
-int	read_map(char *file, t_map *map);
+int     check_extension(char *file_name);
+int     error_msg(char *msg);
+void	free_map(char **map);
+int	    count_rows(char *file);
+int	    read_map(char *file, t_map *map);
+void	strip_newline(char *line);
+int	    check_rows(t_map *stuff);
+int	    check_char(t_map *stuff);
+void	free_everything(t_map *stuff, char *msg);
 
 #endif

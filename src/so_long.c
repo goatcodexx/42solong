@@ -6,12 +6,11 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 19:42:19 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/19 18:44:10 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/21 19:12:08 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <fcntl.h>
 
 /* # define WIDTH 800
 # define HEIGHT 600
@@ -47,44 +46,21 @@ int ft_keypress(int keycode, t_data *data)
 
 int main(int ac, char *av[])
 {
+    t_map   *stuff;
+    
     // t_data  data;
-    int     fd;
-    char    *line;
-    char    **map;
-    int     i;
-
-    i = 0;
-    map = malloc(5 * sizeof(char*));
+    
     if (ac != 2)
         return(error_msg("Please use: ./so_long [map.ber]"));
     if (!check_extension(av[1]))
         return(error_msg("Invalid file extension [.ber only]"));
-    fd = open(av[1], O_RDONLY);
-    if (fd < 0)
-        return(error_msg("Cannot open file"));
-    line = get_next_line(fd);
-    if (!line)
-    {
-        close(fd);
-        return(error_msg("File is empty"));
-    }
-    // map[i] = malloc(ft_strlen(line));
-    // ft_strlcpy(map[i], line, ft_strlen(line));
-    // printf("First line: %s", line);
-    while (line != NULL)
-    {
-        line = get_next_line(fd);
-        map[i] = line;
-        // printf("%s", map[i]);
-        // printf("%s", line);
-        // fflush(stdout);
-        i++;
-    }
-    free(line);
-    close(fd);
-/*     data.mlx_ptr = mlx_init();
+    stuff = malloc(sizeof(t_map) * 1);
+    read_map(av[1], stuff);
+    check_rows(stuff);
+    
+    /*     data.mlx_ptr = mlx_init();
     if (!data.mlx_ptr)
-        return(1);
+    return(1);
     data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "Hello 42");
     if (!data.win_ptr)
     {z
@@ -94,5 +70,6 @@ int main(int ac, char *av[])
     mlx_hook(data.win_ptr, 17, 1 << 17, &ft_close, &data);
     mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &ft_keypress, &data);
     mlx_loop(data.mlx_ptr); */
+    free_everything(stuff, NULL);
     return(0);
 }
