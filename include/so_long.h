@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 19:42:27 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/22 20:18:06 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/23 21:00:00 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int     check_extension(char *file_name);
 int     error_msg(char *msg);
 void	free_map(char **map);
 void	free_everything(t_map *stuff, char *msg);
+void	free_and_exit(t_map *stuff, char *msg);
 int	    count_rows(char *file);
 int	    read_map(char *file, t_map *map);
 void	strip_newline(char *line);

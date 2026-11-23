@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 19:20:21 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/21 19:10:10 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/23 21:03:59 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ int	read_map(char *file, t_map *stuff)
 	stuff->rows = count_rows(file);
 	if (stuff->rows <= 2)
 		return (0);
-	stuff->map = malloc(sizeof(char *) * (stuff->rows + 1));
-	if (!stuff->map)
-		return (0);
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		free_everything(stuff, "File cannot open");
+		free_and_exit(stuff, "File cannot open");
+	stuff->map = malloc(sizeof(char *) * (stuff->rows + 1));
+	if (!stuff->map)
+		return (close(fd), 0);
 	i = 0;
 	line = get_next_line(fd);
 	while (line != NULL)

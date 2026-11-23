@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/21 17:12:55 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/21 18:37:19 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/23 20:58:53 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ void	free_map(char **map)
 void	free_everything(t_map *stuff, char *msg)
 {
 	free_map(stuff->map);
+	free(stuff);
+	exit(error_msg(msg));
+}
+
+void	free_and_exit(t_map *stuff, char *msg)
+{
 	free(stuff);
 	exit(error_msg(msg));
 }

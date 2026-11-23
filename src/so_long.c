@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 19:42:19 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/23 19:08:19 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/23 20:52:30 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ int main(int ac, char *av[])
     if (!read_map(av[1], stuff))
         free_everything(stuff, "Cannot read map");
     check_rows(stuff);
-    check_walls(stuff);
-    check_char(stuff);
     /*     data.mlx_ptr = mlx_init();
     if (!data.mlx_ptr)
     return(1);
