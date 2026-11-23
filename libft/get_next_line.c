@@ -6,11 +6,20 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 22:53:49 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/02 13:20:10 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/23 18:10:25 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	*join_and_free(char *stash, char *buffer)
+{
+	char	*joined;
+
+	joined = ft_strjoin(stash, buffer);
+	free(stash);
+	return (joined);
+}
 
 static char	*readd(int fd, char *stash)
 {
@@ -32,7 +41,7 @@ static char	*readd(int fd, char *stash)
 			return (NULL);
 		}
 		buffer[bytes_read] = '\0';
-		stash = ft_strjoin(stash, buffer);
+		stash = join_and_free(stash, buffer);
 		if (bytes_read == 0 || ft_strchr(stash, '\n'))
 			break ;
 	}
