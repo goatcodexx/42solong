@@ -26,7 +26,7 @@ MLX_DIR 	= minilibx
 MLX			= $(MLX_DIR)/libmlx.a
 MLXFLAGS 	= -L$(MLX_DIR) -lmlx -L/usr/lib/X11 -lXext -lX11 -lm
 
-SRCS    	= src/so_long.c src/error_msg.c src/check_extension.c src/freeing.c src/read_map.c src/validation.c libft/get_next_line.c
+SRCS    	= src/so_long.c src/error_msg.c src/check_extension.c src/freeing.c src/read_map.c src/validation.c src/floodfill.c libft/get_next_line.c
 OBJS    	= $(SRCS:.c=.o)
 
 all: $(NAME)

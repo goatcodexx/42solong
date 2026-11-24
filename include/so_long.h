@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 19:42:27 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/23 21:00:00 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/24 13:53:18 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,40 +28,41 @@
 # include "ft_printf.h"
 # include <fcntl.h>
 
-typedef struct  s_map
+typedef struct s_map
 {
-    char    **map;
-    int     rows;
-    int     columns;
-    int     player_x;
-    int     player_y;
-    int     collectibles;
-    int     collected;
-}           t_map;
+	char	**map;
+	int		rows;
+	int		columns;
+	int		player_x;
+	int		player_y;
+	int		collectibles;
+	int		collected;
+}	t_map;
 
 typedef struct s_game
 {
-    void    *mlx;
-    void    *win;
-    void    *player_img;
-    void    *wall_img;
-    void    *floor_img;
-    void    *collectible_img;
-    void    *exit_img;
-    int     move_count;
-}           t_game;
+	void	*mlx;
+	void	*win;
+	void	*player_img;
+	void	*wall_img;
+	void	*floor_img;
+	void	*collectible_img;
+	void	*exit_img;
+	int		move_count;
+}	t_game;
 
-int     check_extension(char *file_name);
-int     error_msg(char *msg);
+int		check_extension(char *file_name);
+int		error_msg(char *msg);
 void	free_map(char **map);
 void	free_everything(t_map *stuff, char *msg);
 void	free_and_exit(t_map *stuff, char *msg);
-int	    count_rows(char *file);
-int	    read_map(char *file, t_map *map);
+int		count_rows(char *file);
+int		read_map(char *file, t_map *map);
 void	strip_newline(char *line);
-int	    check_rows(t_map *stuff);
-int	    count_char(t_map *stuff, int pce);
-int	    check_char(t_map *stuff);
-int	    check_walls(t_map *stuff);
+int		check_rows(t_map *stuff);
+int		count_char(t_map *stuff, int pce);
+int		check_char(t_map *stuff);
+int		check_walls(t_map *stuff);
+void	check_path(t_map *stuff);
 
 #endif
