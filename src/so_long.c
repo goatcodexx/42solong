@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 19:42:19 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/24 14:36:31 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/25 21:53:24 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,9 @@ Old MLX test code from main, kept for reference:
 int	main(int ac, char *av[])
 {
 	t_map	*stuff;
+    t_game	game;
 
+    ft_bzero(&game, sizeof(t_game));
 	if (ac != 2)
 		return (error_msg("Please use: ./so_long [map.ber]"));
 	if (!check_extension(av[1]))
@@ -79,6 +81,10 @@ int	main(int ac, char *av[])
 		free_everything(stuff, "Cannot read map");
 	check_rows(stuff);
 	check_path(stuff);
+    game.map = stuff;
+    init_window(&game);
+    render_map(&game);
+    mlx_loop(game.mlx);
 	free_everything(stuff, NULL);
 	return (0);
 }

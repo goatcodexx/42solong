@@ -6,7 +6,7 @@
 #    By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/06 19:44:42 by sywee             #+#    #+#              #
-#    Updated: 2026/11/21 18:40:22 by sywee            ###   ########.fr        #
+#    Updated: 2026/11/25 21:51:33 by sywee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ MLX_DIR 	= minilibx
 MLX			= $(MLX_DIR)/libmlx.a
 MLXFLAGS 	= -L$(MLX_DIR) -lmlx -L/usr/lib/X11 -lXext -lX11 -lm
 
-SRCS    	= src/so_long.c src/error_msg.c src/check_extension.c src/freeing.c src/read_map.c src/validation.c src/floodfill.c libft/get_next_line.c
+SRCS    	= src/so_long.c src/error_msg.c src/check_extension.c src/freeing.c src/read_map.c src/validation.c src/floodfill.c src/init_game.c src/hooks.c src/render.c libft/get_next_line.c
 OBJS    	= $(SRCS:.c=.o)
 
 all: $(NAME)

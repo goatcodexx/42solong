@@ -2,3 +2,4 @@ minilibx/*
 minilibx/
 *.o
 so_long
+EVAL_NOTES.md

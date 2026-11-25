@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 19:42:27 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/24 13:53:18 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/25 21:51:18 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
+	t_map	*map;
 	void	*player_img;
 	void	*wall_img;
 	void	*floor_img;
@@ -53,16 +54,22 @@ typedef struct s_game
 
 int		check_extension(char *file_name);
 int		error_msg(char *msg);
+void	check_path(t_map *stuff);
 void	free_map(char **map);
 void	free_everything(t_map *stuff, char *msg);
 void	free_and_exit(t_map *stuff, char *msg);
+void	free_game(t_game *game, char *msg);
+int		close_game(t_game *game);
+int		handle_key(int keycode, t_game *game);
+void	load_textures(t_game *game);
+void	init_window(t_game *game);
 int		count_rows(char *file);
 int		read_map(char *file, t_map *map);
 void	strip_newline(char *line);
-int		check_rows(t_map *stuff);
+void	render_map(t_game *game);
 int		count_char(t_map *stuff, int pce);
-int		check_char(t_map *stuff);
 int		check_walls(t_map *stuff);
-void	check_path(t_map *stuff);
+int		check_char(t_map *stuff);
+int		check_rows(t_map *stuff);
 
 #endif
