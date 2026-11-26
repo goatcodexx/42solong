@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 14:00:00 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/24 14:00:00 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/26 20:21:41 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ static void	fill(char **map, int y, int x)
 {
 	if (map[y][x] == '1' || map[y][x] == 'F')
 		return ;
+	if (map[y][x] == 'E')
+	{
+		map[y][x] = 'F';
+		return ;
+	}
 	map[y][x] = 'F';
 	fill(map, y - 1, x);
 	fill(map, y + 1, x);

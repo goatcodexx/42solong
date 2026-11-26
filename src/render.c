@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 21:47:56 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/25 22:28:47 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/26 20:16:18 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static void	draw_tile(t_game *game, int x, int y)
 		put_img(game, game->collectible_img, x, y);
 	else if (c == 'E')
 		put_img(game, game->exit_img, x, y);
+	else if (c == 'P' && game->facing_left)
+		put_img(game, game->player_left_img, x, y);
 	else if (c == 'P')
 		put_img(game, game->player_img, x, y);
 }

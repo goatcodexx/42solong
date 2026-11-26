@@ -59,14 +59,14 @@ Old MLX test code from main, kept for reference:
     }
     mlx_hook(data.win_ptr, 17, 1 << 17, &ft_close, &data);
     mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &ft_keypress, &data);
-    mlx_loop(data.mlx_ptr); */
+	mlx_loop(data.mlx_ptr); */
 
 int	main(int ac, char *av[])
 {
 	t_map	*stuff;
-    t_game	game;
+	t_game	game;
 
-    ft_bzero(&game, sizeof(t_game));
+	ft_bzero(&game, sizeof(t_game));
 	if (ac != 2)
 		return (error_msg("Please use: ./so_long [map.ber]"));
 	if (!check_extension(av[1]))
@@ -81,10 +81,10 @@ int	main(int ac, char *av[])
 		free_everything(stuff, "Cannot read map");
 	check_rows(stuff);
 	check_path(stuff);
-    game.map = stuff;
-    init_window(&game);
-    render_map(&game);
-    mlx_loop(game.mlx);
+	game.map = stuff;
+	init_window(&game);
+	render_map(&game);
+	mlx_loop(game.mlx);
 	free_everything(stuff, NULL);
 	return (0);
 }

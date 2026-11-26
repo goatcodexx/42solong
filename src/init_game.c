@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 16:43:52 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/25 21:43:18 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/26 19:50:10 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	load_textures(t_game *game)
 	game->wall_img = load_image(game, "textures/wall.xpm");
 	game->floor_img = load_image(game, "textures/floor.xpm");
 	game->player_img = load_image(game, "textures/player.xpm");
+	game->player_left_img = load_image(game, "textures/player_left.xpm");
 	game->collectible_img = load_image(game, "textures/collectible.xpm");
 	game->exit_img = load_image(game, "textures/exit.xpm");
 }

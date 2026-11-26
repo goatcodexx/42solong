@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 19:42:27 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/25 21:51:18 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/26 19:48:35 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ typedef struct s_game
 	void	*win;
 	t_map	*map;
 	void	*player_img;
+	void	*player_left_img;
 	void	*wall_img;
 	void	*floor_img;
 	void	*collectible_img;
 	void	*exit_img;
 	int		move_count;
+	int		facing_left;
 }	t_game;
 
 int		check_extension(char *file_name);
@@ -60,6 +62,7 @@ void	free_everything(t_map *stuff, char *msg);
 void	free_and_exit(t_map *stuff, char *msg);
 void	free_game(t_game *game, char *msg);
 int		close_game(t_game *game);
+void	move_player(t_game *game, int dx, int dy);
 int		handle_key(int keycode, t_game *game);
 void	load_textures(t_game *game);
 void	init_window(t_game *game);
