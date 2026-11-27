@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 14:00:00 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/26 20:21:41 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/27 18:40:15 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,18 @@ static int	has_unreached(char **map)
 	return (0);
 }
 
-void	check_path(t_map *stuff)
+void	check_path(t_game *game)
 {
 	char	**copy;
 
-	copy = copy_map(stuff);
+	copy = copy_map(game->map);
 	if (!copy)
-		free_everything(stuff, "Memory allocation failed");
-	fill(copy, stuff->player_y, stuff->player_x);
+		free_game(game, "Memory allocation failed");
+	fill(copy, game->map->player_y, game->map->player_x);
 	if (has_unreached(copy))
 	{
 		free_map(copy);
-		free_everything(stuff, "No valid path");
+		free_game(game, "No valid path");
 	}
 	free_map(copy);
 }

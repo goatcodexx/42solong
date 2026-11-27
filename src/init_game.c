@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 16:43:52 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/27 17:16:59 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/27 18:38:43 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	init_window(t_game *game)
 	width = game->map->columns * TILE_SIZE;
 	height = game->map->rows * TILE_SIZE;
 	check_screen_size(game, width, height);
+	check_path(game);
 	game->win = mlx_new_window(game->mlx, width, height, "so_long");
 	if (!game->win)
 	{

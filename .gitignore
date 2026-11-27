@@ -1,5 +1,6 @@
-minilibx/*
 minilibx/
+minilibx-linux.tgz
 *.o
+*.a
 so_long
 EVAL_NOTES.md

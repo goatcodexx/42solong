@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 17:19:56 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/26 19:53:49 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/27 18:25:46 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,16 @@ int	handle_key(int keycode, t_game *game)
 {
 	if (keycode == KEY_ESC)
 		close_game(game);
-	else if (keycode == KEY_W)
+	else if (keycode == KEY_W || keycode == KEY_UP)
 		move_player(game, 0, -1);
-	else if (keycode == KEY_S)
+	else if (keycode == KEY_S || keycode == KEY_DOWN)
 		move_player(game, 0, 1);
-	else if (keycode == KEY_A)
+	else if (keycode == KEY_A || keycode == KEY_LEFT)
 	{
 		game->facing_left = 1;
 		move_player(game, -1, 0);
 	}
-	else if (keycode == KEY_D)
+	else if (keycode == KEY_D || keycode == KEY_RIGHT)
 	{
 		game->facing_left = 0;
 		move_player(game, 1, 0);

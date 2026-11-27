@@ -41,18 +41,22 @@ $(LIBFT):
 $(PRINTF):
 	$(MAKE) -C $(PRINTF_DIR)
 
+$(MLX_DIR):
+	tar -xzf minilibx-linux.tgz
+	mv minilibx-linux $(MLX_DIR)
+
 $(MLX):
 	$(MAKE) -C $(MLX_DIR)
 
 # Compile object files
-%.o: %.c include/so_long.h
+%.o: %.c include/so_long.h | $(MLX_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Remove object files
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
 	$(MAKE) -C $(PRINTF_DIR) clean
-	$(MAKE) -C $(MLX_DIR) clean
+	if [ -d $(MLX_DIR) ]; then $(MAKE) -C $(MLX_DIR) clean; fi
 	rm -f $(OBJS)
 
 # Remove library and executable
