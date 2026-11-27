@@ -6,7 +6,7 @@
 /*   By: sywee <sywee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 16:43:52 by sywee             #+#    #+#             */
-/*   Updated: 2026/11/26 19:50:10 by sywee            ###   ########.fr       */
+/*   Updated: 2026/11/27 17:16:59 by sywee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,26 @@ void	load_textures(t_game *game)
 	game->exit_img = load_image(game, "textures/exit.xpm");
 }
 
+static void	check_screen_size(t_game *game, int width, int height)
+{
+	int		screen_w;
+	int		screen_h;
+	char	*msg;
+
+	mlx_get_screen_size(game->mlx, &screen_w, &screen_h);
+	msg = NULL;
+	if (width > screen_w)
+		msg = "Map is wider than screen";
+	else if (height > screen_h)
+		msg = "Map is taller than screen";
+	if (msg)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+		free_everything(game->map, msg);
+	}
+}
+
 void	init_window(t_game *game)
 {
 	int	width;
@@ -44,6 +64,7 @@ void	init_window(t_game *game)
 		free_everything(game->map, "MLX init failed");
 	width = game->map->columns * TILE_SIZE;
 	height = game->map->rows * TILE_SIZE;
+	check_screen_size(game, width, height);
 	game->win = mlx_new_window(game->mlx, width, height, "so_long");
 	if (!game->win)
 	{
